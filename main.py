@@ -1,7 +1,11 @@
-import streamlit as st
+import os
+from dotenv import load_dotenv
 from openai import OpenAI
 
-client = OpenAI()
+load_dotenv()  # loads .env file
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
 
 SYSTEM_PROMPT = """
 You are an expert SAT math tutor and content creator.
