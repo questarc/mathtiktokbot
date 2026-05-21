@@ -1,10 +1,14 @@
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
+import streamlit as st
 
-load_dotenv()  # loads .env file
+# MUST be the first Streamlit command
+st.set_page_config(page_title="SAT Math Agent", layout="centered")
 
+load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
 
 
 SYSTEM_PROMPT = """
@@ -23,7 +27,7 @@ Format your response as:
 ...short script...
 """
 
-st.set_page_config(page_title="SAT Math Agent", layout="centered")
+#st.set_page_config(page_title="SAT Math Agent", layout="centered")
 
 st.title("📘 SAT Math Agent")
 st.write("Paste any SAT math question and get a full solution + TikTok script.")
